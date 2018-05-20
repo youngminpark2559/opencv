@@ -21,6 +21,7 @@
 
 # You can see grayscale image
 # img 2018-05-20 13-55-49.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-05-20 13-55-49.png"><xmp>
 
 # Right images are binary images
 
@@ -34,9 +35,11 @@
 # Dithering is for displaying on screen
 # Halftoning is for printing on paper, manipulating size of dot unlike dithering manipulates density of dots
 # img 2018-05-20 13-56-11.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-05-20 13-56-11.png"><xmp>
 
 # You can apply halftoning to color printing as well as binary image printing
 # img 2018-05-20 13-58-15.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-05-20 13-58-15.png"><xmp>
 
 # =======================================================================
 # grayscale image
@@ -49,6 +52,7 @@
 # Generally grayscale image uses 8 bit per pixel
 # But grayscale image can use much bit per pixel like 16 bit or anything for specific domains like medical image
 # img 2018-05-20 14-13-19.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-05-20 14-13-19.png"><xmp>
 
 # =======================================================================
 # color image
@@ -62,6 +66,7 @@
 
 # Above kind of way is called true color image
 # img 2018-05-20 14-21-02.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-05-20 14-21-02.png"><xmp>
 
 # Even if true color image can express tons of colors, size of image becomes flaw (too big, one image can size up to 100mb)
 # And 16777217 colors are kind of useless because human can disinguish them
@@ -71,8 +76,10 @@
 # You can see light on yellow area from R channel and G channel, 
 # whcih means you can generate yellow color if you mix red and green
 # img 2018-05-20 14-26-57.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-05-20 14-26-57.png"><xmp>
 
 # img 2018-05-20 14-28-49.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-05-20 14-28-49.png"><xmp>
 
 # Value in pixel is index value of lookup table
 
@@ -91,6 +98,7 @@
 # There are visible areas and invisible area from sun light
 # Visible area is narrow
 # img 2018-05-20 14-38-52.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-05-20 14-38-52.png"><xmp>
 
 # You only deal with visible light when using computer vision
 
