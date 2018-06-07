@@ -55,6 +55,7 @@ MathJax.Hub.Config({
 
 overview of image transform
 
+@
 transform :
 based on given function, you convert given data (image) composed of color or brightness into another type data like frequency data
 
@@ -81,7 +82,7 @@ Sine signal :
 x axis : time
 
 2018-06-05 13-40-58.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/mltheory/master/jjpr/pic/2018-06-05 13-40-58.png"><xmp>
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-05 13-40-58.png"><xmp>
 
 @
 transform:
@@ -101,10 +102,10 @@ Length becomes b
 transform is to change basis from xy basis to x'y' basis
 
 2018-06-05 13-45-52.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/mltheory/master/jjpr/pic/2018-06-05 13-45-52.png"><xmp>
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-05 13-45-52.png"><xmp>
 
 2018-06-05 13-46-07.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/mltheory/master/jjpr/pic/2018-06-05 13-46-07.png"><xmp>
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-05 13-46-07.png"><xmp>
 
 In new basis x'y', point becomes (a',b') from (a,b)
 
@@ -114,27 +115,27 @@ In space, how fast value changes?
 
 high spatial frequency : entire image with rapidly changing brightness level
 2018-06-05 13-58-28.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/mltheory/master/jjpr/pic/2018-06-05 13-58-28.png"><xmp>
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-05 13-58-28.png"><xmp>
 f : 20 means 20 changes
 
 low spatial frequency : entire image with slowly changing brightness level
 2018-06-05 13-57-55.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/mltheory/master/jjpr/pic/2018-06-05 13-57-55.png"><xmp>
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-05 13-57-55.png"><xmp>
 
 zeor spatial frequency : entire image with constant value (without changes)
 2018-06-05 13-56-38.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/mltheory/master/jjpr/pic/2018-06-05 13-56-38.png"><xmp>
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-05 13-56-38.png"><xmp>
 f : frequency
 g : brightness
 
 @
 frequency 1 in sinusoidal wave
 2018-06-05 14-00-14.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/mltheory/master/jjpr/pic/2018-06-05 14-00-14.png"><xmp>
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-05 14-00-14.png"><xmp>
 
 frequency 2 (white, black, white, black) in sinusoidal wave
 2018-06-05 14-01-14.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/mltheory/master/jjpr/pic/2018-06-05 14-01-14.png"><xmp>
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-05 14-01-14.png"><xmp>
 
 
 @
@@ -163,7 +164,7 @@ $$$B^{-1}(r,c;u,v)$$$ : inverse of basis image
 
 =========================================================
 Characteristic of T(u,v)
-=========================================================
+
 Transformed data (transform coefficients at (u,v)) T(u,v) is projection of original input image I(r,c) onto each basis image B(u,v)
 T(u,v) represents similarity of image I(r,c) to basis image B(u,v)
 
@@ -173,13 +174,13 @@ Image is decomposed into weigthed sum of basis images
 
 =========================================================
 Set of basis vectors : B(r,c;u,v)
-=========================================================
+
 In B(r,c;u,v),
 v : 0, 1
 u : 0, 1
 
 2018-06-05 15-27-02.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/mltheory/master/jjpr/pic/2018-06-05 15-27-02.png"><xmp>
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-05 15-27-02.png"><xmp>
 
 To be basis image, basis images should be orthogonal
 
