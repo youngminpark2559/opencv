@@ -100,15 +100,15 @@ Difference of A and B : $$$A-B$$$
 
 Reflection of A : $$$\dot{A}$$$ (symmetric move with criterion of (0,0))
 2018-06-08 12-22-10.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-04 08-13-00.png"><xmp>
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-08 12-22-10.png"><xmp>
 2018-06-08 12-22-28.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-04 08-13-00.png"><xmp>
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-08 12-22-28.png"><xmp>
 
 Translation of A : $$$(A)_{z}$$$ z is composed of $$$z_{1}$$$ and $$$z_{2}$$$ (just move)
 2018-06-08 12-23-15.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-04 08-13-00.png"><xmp>
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-08 12-23-15.png"><xmp>
 2018-06-08 12-23-34.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-04 08-13-00.png"><xmp>
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-08 12-23-34.png"><xmp>
 
 =========================================================
 Dilation operation on binary image
@@ -139,27 +139,27 @@ Actual algorithm
 structuring element : green cross (structuring element can have other shapes like rectangle, ellipse, etc)
 Center is 1, the others are 0
 2018-06-08 12-41-03.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-04 08-13-00.png"><xmp>
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-08 12-41-03.png"><xmp>
 
 Let's move structuring element to left with one step
 You can see intersection part between structuring element and image (arrow)
 2018-06-08 12-42-12.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-04 08-13-00.png"><xmp>
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-08 12-42-12.png"><xmp>
 
 So, you will include blue part into output expanded image
 Result:
 2018-06-08 12-43-24.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-04 08-13-00.png"><xmp>
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-08 12-43-24.png"><xmp>
 
 Let's move structuring element to up with one step
 2018-06-08 12-44-09.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-04 08-13-00.png"><xmp>
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-08 12-44-09.png"><xmp>
 2018-06-08 12-44-21.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-04 08-13-00.png"><xmp>
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-08 12-44-21.png"><xmp>
 
 Let's move structuring element to left and up with each one step
 2018-06-08 12-45-07.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-04 08-13-00.png"><xmp>
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-08 12-45-07.png"><xmp>
 
 There is no intersection part
 
@@ -168,28 +168,28 @@ Dilation operation on example
 
 structuring element (3by3 stuffed with 1, center is x) :
 2018-06-08 12-55-29.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-04 08-13-00.png"><xmp>
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-08 12-55-29.png"><xmp>
 
 original image :
 2018-06-08 12-55-44.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-04 08-13-00.png"><xmp>
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-08 12-55-44.png"><xmp>
 
 2018-06-08 12-56-39.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-04 08-13-00.png"><xmp>
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-08 12-56-39.png"><xmp>
 
 Stuffing with 1:
 2018-06-08 12-57-01.png 
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-04 08-13-00.png"><xmp>
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-08 12-57-01.png"><xmp>
 
 2018-06-08 12-57-28.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-04 08-13-00.png"><xmp>
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-08 12-57-28.png"><xmp>
 
 2018-06-08 12-57-41.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-04 08-13-00.png"><xmp>
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-08 12-57-41.png"><xmp>
 
 After dilation :
 2018-06-08 12-57-59.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-04 08-13-00.png"><xmp>
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-08 12-57-59.png"><xmp>
 
 Stuffed holes
 expanded object
@@ -197,15 +197,15 @@ expanded object
 =========================================================
 Original image :
 2018-06-08 12-58-56.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-04 08-13-00.png"><xmp>
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-08 12-58-56.png"><xmp>
 
 Dilation with structuring element shaped rectangle (7by7)
 2018-06-08 12-59-58.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-04 08-13-00.png"><xmp>
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-08 12-59-58.png"><xmp>
 
 Dilation with structuring element shaped circle (7by7)
 2018-06-08 13-00-07.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-04 08-13-00.png"><xmp>
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-08 13-00-07.png"><xmp>
 
 =========================================================
 Erosion operation
@@ -222,40 +222,40 @@ $$$B_{z}$$$ : moves B as much as z
 $$$B_{z}\subseteq A$$$ : $$$B_{z}$$$ should be involved in A, that parts will be included in result
 
 2018-06-08 13-08-34.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-04 08-13-00.png"><xmp>
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-08 13-08-34.png"><xmp>
 
 structuring element is not involved in image, so, center will be removed in result
 2018-06-08 13-09-36.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-04 08-13-00.png"><xmp>
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-08 13-09-36.png"><xmp>
 
 2018-06-08 13-09-55.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-04 08-13-00.png"><xmp>
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-08 13-09-55.png"><xmp>
 
 2018-06-08 13-10-09.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-04 08-13-00.png"><xmp>
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-08 13-10-09.png"><xmp>
 
 2018-06-08 13-10-24.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-04 08-13-00.png"><xmp>
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-08 13-10-24.png"><xmp>
 
 =========================================================
 Erosion on example
 
 original image
 2018-06-08 13-11-44.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-04 08-13-00.png"><xmp>
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-08 13-11-44.png"><xmp>
 
 2018-06-08 13-12-06.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-04 08-13-00.png"><xmp>
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-08 13-12-06.png"><xmp>
 
 result:
 2018-06-08 13-12-29.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-04 08-13-00.png"><xmp>
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-08 13-12-29.png"><xmp>
 
 =========================================================
 2018-06-08 13-13-00.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-04 08-13-00.png"><xmp>
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-08 13-13-00.png"><xmp>
 2018-06-08 13-13-20.png 
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-04 08-13-00.png"><xmp>
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-08 13-13-20.png"><xmp>
 
 =========================================================
 opening operation
@@ -266,7 +266,7 @@ Removes small spine pixels of object
 $$$ A\circ B = (A\ominus B)\oplus B$$$
 
 2018-06-08 13-16-22.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-04 08-13-00.png"><xmp>
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-08 13-16-22.png"><xmp>
 
 =========================================================
 closing operation
@@ -276,18 +276,18 @@ Fills small hole or gap pixels of object
 
 $$$ A\cdot B = (A\oplus B)\ominus B$$$
 2018-06-08 13-18-00.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-04 08-13-00.png"><xmp>
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-08 13-18-00.png"><xmp>
 
 =========================================================
 2018-06-08 13-18-39.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-04 08-13-00.png"><xmp>
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-08 13-18-39.png"><xmp>
 
 =========================================================
 Gray-scale image has brightness
 
 So, structuring element can have level of brightness 
 2018-06-08 13-25-13.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-04 08-13-00.png"><xmp>
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-08 13-25-13.png"><xmp>
 
 =========================================================
 Dilation of f by k
@@ -309,7 +309,7 @@ f(x+s,y+t) : refrection of f(x,y)
 
 =========================================================
 2018-06-08 13-41-57.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-04 08-13-00.png"><xmp>
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-08 13-41-57.png"><xmp>
 
 </xmp>
    </BODY>
