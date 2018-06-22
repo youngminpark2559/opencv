@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+<HTML>
+   <HEAD>
+      <TITLE>My first HTML document</TITLE>
+      <style rel="stylesheet" type="text/css">
+body {
+ font-size: 23px;
+ 
+ margin-top: 50px;
+    margin-bottom: 50px;
+    margin-right: 80px;
+    margin-left: 80px;
+    
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-right: 80px;
+    padding-left: 80px;
+    
+    line-height:35px;
+}
+img {
+ width:500px;
+}
+</style>
+      <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    "HTML-CSS" : {
+        availableFonts : ["STIX"],
+        preferredFont : "STIX",
+        webFont : "STIX-Web",
+        imageFont : null
+    }
+});
+</script>
+     <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js" type="text/javascript">    
+    MathJax.Hub.Config({
+        HTML: ["input/TeX","output/HTML-CSS"],
+        TeX: { extensions: ["AMSmath.js","AMSsymbols.js"], 
+               equationNumbers: { autoNumber: "AMS" } },
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX","output/HTML-CSS"],
+        tex2jax: { inlineMath: [ ['$$$','$$$'] ],
+                   displayMath: [ ['$$$$','$$$$'] ],
+                   processEscapes: true },
+        "HTML-CSS": { availableFonts: ["TeX"],
+                      linebreaks: { automatic: true } }
+    });
+</script>
+   </HEAD>
+   <BODY>
+
+<xmp>
+=========================================================
+watershed algorithm
+conventional watershed algorithm
+is applied to gradient image (image which expresses amount of brighness changes)
+modified watershed algorithm
+is applied to intensity image
+
+relation between intensity and gradient
+2018-06-09 15-27-39.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-09 15-27-39.png"><xmp>
+
+
+=========================================================
+2018-06-09 15-29-26.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-09 15-29-26.png"><xmp>
+
+
+vertical bars : dams which set borderline of regions
+4 regions
+
+=========================================================
+there are many watershed algorithms
+Much used watershed algorithm is immersion simulation suggested by Meyer
+
+=========================================================
+values are gradient
+4-connectivity
+2018-06-09 15-33-17.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-09 15-33-17.png"><xmp>
+
+
+1step: finds minima (low gradinet than around)
+bottom right, bottom left, top left
+2step: labeling to 3 minima (blue, green, yellow
+2018-06-09 15-36-14.png)
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-09 15-36-14.png)"><xmp>
+
+3step: you insert pixels of minima into priority (0~40, also same gradient range) queue
+from lowest value,.........
+what is (10,7)?
+2018-06-09 15-38-46.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-09 15-38-46.png"><xmp>
+
+
+You first insert (10,7) into blue labeled region
+2018-06-09 15-41-02.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-09 15-41-02.png"><xmp>
+
+
+2018-06-09 15-41-37.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-09 15-41-37.png"><xmp>
+</xmp>
+   </BODY>
+</HTML>
