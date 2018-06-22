@@ -1,68 +1,15 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
-   "http://www.w3.org/TR/html4/strict.dtd">
-<HTML>
-   <HEAD>
-      <TITLE>My first HTML document</TITLE>
-      <style rel="stylesheet" type="text/css">
-body {
- font-size: 23px;
- 
- margin-top: 50px;
-    margin-bottom: 50px;
-    margin-right: 80px;
-    margin-left: 80px;
-    
-    padding-top: 50px;
-    padding-bottom: 50px;
-    padding-right: 80px;
-    padding-left: 80px;
-    
-    line-height:35px;
-}
-img {
- width:500px;
-}
-</style>
-      <script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    "HTML-CSS" : {
-        availableFonts : ["STIX"],
-        preferredFont : "STIX",
-        webFont : "STIX-Web",
-        imageFont : null
-    }
-});
-</script>
-     <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js" type="text/javascript">    
-    MathJax.Hub.Config({
-        HTML: ["input/TeX","output/HTML-CSS"],
-        TeX: { extensions: ["AMSmath.js","AMSsymbols.js"], 
-               equationNumbers: { autoNumber: "AMS" } },
-        extensions: ["tex2jax.js"],
-        jax: ["input/TeX","output/HTML-CSS"],
-        tex2jax: { inlineMath: [ ['$$$','$$$'] ],
-                   displayMath: [ ['$$$$','$$$$'] ],
-                   processEscapes: true },
-        "HTML-CSS": { availableFonts: ["TeX"],
-                      linebreaks: { automatic: true } }
-    });
-</script>
-   </HEAD>
-   <BODY>
-013 image discrete transform : Discrete Cosine Transform, Fourier transform
-<xmp>
 013.py
 
 image discrete transform : Discrete Cosine Transform, Fourier transform
 
-=========================================================
+
 Discrete transforms which are much used for digital image as well as general signals :
 furier transform
 DCT = discrete cosine transform
 
 =========================================================
 DCT = discrete cosine transform
-
+=========================================================
 Basis image is represented as cosine function:
 $$$\cos{[\frac{(2r+1)u\pi}{2N}]}\cos{[\frac{(2c+1)v\pi}{2N}]}$$$
 
@@ -79,7 +26,7 @@ $$$I(r,c)=\sum\limits_{u=0}^{N-1}\sum\limits_{v=0}^{N-1} \alpha(u)\alpha(v) C(r,
 =========================================================
 4by4 16 basis images for DCT (discrete cosine transform)
 2018-06-06 13-53-07.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-06 13-53-07.png"><xmp>
+</xmp><img src="/media/young/5e7be152-8ed5-483d-a8e8-b3fecfa221dc/text/mycodehtml/cv/sykim_image_processing_and_pattern_recognition/pic/2018-06-06 13-53-07.png"><xmp>
 
 (1,1) detects frequency=0 area
 (2,1) detects vertical frequency (vertical gradients)
@@ -93,17 +40,17 @@ DCT generally uses 8by8 basis images
 =========================================================
 Original image
 2018-06-06 13-55-59.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-06 13-55-59.png"><xmp>
+</xmp><img src="/media/young/5e7be152-8ed5-483d-a8e8-b3fecfa221dc/text/mycodehtml/cv/sykim_image_processing_and_pattern_recognition/pic/2018-06-06 13-55-59.png"><xmp>
 
 Cosine transform as linearly remapped iamge
 but it looks too dark
 2018-06-06 13-56-39.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-06 13-56-39.png"><xmp>
+</xmp><img src="/media/young/5e7be152-8ed5-483d-a8e8-b3fecfa221dc/text/mycodehtml/cv/sykim_image_processing_and_pattern_recognition/pic/2018-06-06 13-56-39.png"><xmp>
 
 With above too dark issue, you can use log to make low value stay, high value lower, resulting in low difference between pixel values
 Cosine transform as log remapped image
 2018-06-06 13-57-49.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-06 13-57-49.png"><xmp>
+</xmp><img src="/media/young/5e7be152-8ed5-483d-a8e8-b3fecfa221dc/text/mycodehtml/cv/sykim_image_processing_and_pattern_recognition/pic/2018-06-06 13-57-49.png"><xmp>
 
 Generally, if you perform any transforms, energy much shows around low frequency because of following reason :
 Quantity of pixels :
@@ -141,6 +88,8 @@ In other words, you obtain data in form of complex number
 Complex number = (real number part) + (imaginary number part)
 Complex number = a + bi
 
+
+
 complex spectral component
 F(u,v)=R(u,v)+jI(u,v)
 F(u,v) : complex part
@@ -157,15 +106,15 @@ $$$\phi(u,v)=\tan^{-1}\begin{bmatrix} \frac{I(u,v)}{R(u,v)} \end{bmatrix}$$$
 =========================================================
 orignal image
 2018-06-06 16-08-19.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-06 16-08-19.png"><xmp>
+</xmp><img src="/media/young/5e7be152-8ed5-483d-a8e8-b3fecfa221dc/text/mycodehtml/cv/sykim_image_processing_and_pattern_recognition/pic/2018-06-06 16-08-19.png"><xmp>
 
 Fourier transformed image
 2018-06-06 16-08-36.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-06 16-08-36.png"><xmp>
+</xmp><img src="/media/young/5e7be152-8ed5-483d-a8e8-b3fecfa221dc/text/mycodehtml/cv/sykim_image_processing_and_pattern_recognition/pic/2018-06-06 16-08-36.png"><xmp>
 
 image after inverse Fourier transform with only phase information
 2018-06-06 16-09-11.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-06 16-09-11.png"><xmp>
+</xmp><img src="/media/young/5e7be152-8ed5-483d-a8e8-b3fecfa221dc/text/mycodehtml/cv/sykim_image_processing_and_pattern_recognition/pic/2018-06-06 16-09-11.png"><xmp>
 
 =========================================================
 
@@ -177,7 +126,7 @@ Note that only difference is "-"
 =========================================================
 Original image and its Fourier transformed image
 2018-06-06 16-14-19.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-06 16-14-19.png"><xmp>
+</xmp><img src="/media/young/5e7be152-8ed5-483d-a8e8-b3fecfa221dc/text/mycodehtml/cv/sykim_image_processing_and_pattern_recognition/pic/2018-06-06 16-14-19.png"><xmp>
 
 point where u and v is 0 (place where frequency=0) is called DC
 The others are called AC
@@ -185,21 +134,21 @@ The others are called AC
 =========================================================
 Remain some elements which are with low frequency, and remove the others
 2018-06-06 16-15-49.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-06 16-15-49.png"><xmp>
+</xmp><img src="/media/young/5e7be152-8ed5-483d-a8e8-b3fecfa221dc/text/mycodehtml/cv/sykim_image_processing_and_pattern_recognition/pic/2018-06-06 16-15-49.png"><xmp>
 
 Perform inverse Fourier transform
 low frequency component : part where bright changes show slow (high frequency)
 2018-06-06 16-16-21.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-06 16-16-21.png"><xmp>
+</xmp><img src="/media/young/5e7be152-8ed5-483d-a8e8-b3fecfa221dc/text/mycodehtml/cv/sykim_image_processing_and_pattern_recognition/pic/2018-06-06 16-16-21.png"><xmp>
 
 Remain some elements which are with high frequency, and remove the others (low frequency)
 2018-06-06 16-18-41.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-06 16-18-41.png"><xmp>
+</xmp><img src="/media/young/5e7be152-8ed5-483d-a8e8-b3fecfa221dc/text/mycodehtml/cv/sykim_image_processing_and_pattern_recognition/pic/2018-06-06 16-18-41.png"><xmp>
 
 Perform inverse Fourier transform
 high frequency component : part where bright changes show drastically like edge
 2018-06-06 16-19-00.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-06 16-19-00.png"><xmp>
+</xmp><img src="/media/young/5e7be152-8ed5-483d-a8e8-b3fecfa221dc/text/mycodehtml/cv/sykim_image_processing_and_pattern_recognition/pic/2018-06-06 16-19-00.png"><xmp>
 
 =========================================================
 DCT and Fourier transforms create result data in form of frequency component
@@ -226,7 +175,7 @@ Characteristics of Fourier transform : periodicity (DCT also has periodicity)
 
 After Fourier transform, blue box data periodically shows vertically, horizontally, diagonally 
 2018-06-07 15-53-42.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-07 15-53-42.png"><xmp>
+</xmp><img src="/media/young/5e7be152-8ed5-483d-a8e8-b3fecfa221dc/text/mycodehtml/cv/sykim_image_processing_and_pattern_recognition/pic/2018-06-07 15-53-42.png"><xmp>
 $$$F(u,v)=F(u+M,v)=F(u,v+N)=F(u+N,v+N)$$$
 
 =========================================================
@@ -239,11 +188,11 @@ $$$F(u,v)=F*(-u,-v)$$$ :
 origin symmetry
 
 2018-06-07 15-57-39.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-07 15-57-39.png"><xmp>
+</xmp><img src="/media/young/5e7be152-8ed5-483d-a8e8-b3fecfa221dc/text/mycodehtml/cv/sykim_image_processing_and_pattern_recognition/pic/2018-06-07 15-57-39.png"><xmp>
 
 =========================================================
 2018-06-07 16-00-33.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-07 16-00-33.png"><xmp>
+</xmp><img src="/media/young/5e7be152-8ed5-483d-a8e8-b3fecfa221dc/text/mycodehtml/cv/sykim_image_processing_and_pattern_recognition/pic/2018-06-07 16-00-33.png"><xmp>
 1 3
 2 4
 
@@ -267,13 +216,13 @@ In cosine transform,
 image interates every 2N by 2N
 (In Fourier transform, image interates N by N)
 2018-06-07 16-05-31.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-07 16-05-31.png"><xmp>
+</xmp><img src="/media/young/5e7be152-8ed5-483d-a8e8-b3fecfa221dc/text/mycodehtml/cv/sykim_image_processing_and_pattern_recognition/pic/2018-06-07 16-05-31.png"><xmp>
 
 circle is component of DC
 
 frequency increases as you go from DC (circle)
 2018-06-07 16-06-37.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-07 16-06-37.png"><xmp>
+</xmp><img src="/media/young/5e7be152-8ed5-483d-a8e8-b3fecfa221dc/text/mycodehtml/cv/sykim_image_processing_and_pattern_recognition/pic/2018-06-07 16-06-37.png"><xmp>
 
 =========================================================
 From transformed result by DCT, FT,
@@ -333,7 +282,7 @@ shape of filter
 
 In 1 dimension, shape of filter looks like this :
 2018-06-07 16-31-45.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-07 16-31-45.png"><xmp>
+</xmp><img src="/media/young/5e7be152-8ed5-483d-a8e8-b3fecfa221dc/text/mycodehtml/cv/sykim_image_processing_and_pattern_recognition/pic/2018-06-07 16-31-45.png"><xmp>
 
 left bottom is DC point (low frequency)
 
@@ -345,56 +294,56 @@ Filter which has drastically increased value like $$$f_{0}$$$ is called "ideal f
 
 There are filters which has smoothly increased value, called butterworth filter
 2018-06-07 16-31-27.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-07 16-31-27.png"><xmp>
+</xmp><img src="/media/young/5e7be152-8ed5-483d-a8e8-b3fecfa221dc/text/mycodehtml/cv/sykim_image_processing_and_pattern_recognition/pic/2018-06-07 16-31-27.png"><xmp>
 
 =========================================================
 2018-06-07 16-32-56.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-07 16-32-56.png"><xmp>
+</xmp><img src="/media/young/5e7be152-8ed5-483d-a8e8-b3fecfa221dc/text/mycodehtml/cv/sykim_image_processing_and_pattern_recognition/pic/2018-06-07 16-32-56.png"><xmp>
 DC is located in center
 White area passes frequency 
 Black area doesn't pass frequency
 
 2018-06-07 16-33-18.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-07 16-33-18.png"><xmp>
+</xmp><img src="/media/young/5e7be152-8ed5-483d-a8e8-b3fecfa221dc/text/mycodehtml/cv/sykim_image_processing_and_pattern_recognition/pic/2018-06-07 16-33-18.png"><xmp>
 DC is located in left top
 
 =========================================================
 Original image
 2018-06-07 16-38-10.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-07 16-38-10.png"><xmp>
+</xmp><img src="/media/young/5e7be152-8ed5-483d-a8e8-b3fecfa221dc/text/mycodehtml/cv/sykim_image_processing_and_pattern_recognition/pic/2018-06-07 16-38-10.png"><xmp>
 
 Fourier transformed image (frequency domain)
 2018-06-07 16-38-39.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-07 16-38-39.png"><xmp>
+</xmp><img src="/media/young/5e7be152-8ed5-483d-a8e8-b3fecfa221dc/text/mycodehtml/cv/sykim_image_processing_and_pattern_recognition/pic/2018-06-07 16-38-39.png"><xmp>
 
 Ideal filter on Fourier transformed image
 2018-06-07 16-39-09.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-07 16-39-09.png"><xmp>
+</xmp><img src="/media/young/5e7be152-8ed5-483d-a8e8-b3fecfa221dc/text/mycodehtml/cv/sykim_image_processing_and_pattern_recognition/pic/2018-06-07 16-39-09.png"><xmp>
 
 Inversed image from Ideal filtered image
 2018-06-07 16-39-23.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-07 16-39-23.png"><xmp>
+</xmp><img src="/media/young/5e7be152-8ed5-483d-a8e8-b3fecfa221dc/text/mycodehtml/cv/sykim_image_processing_and_pattern_recognition/pic/2018-06-07 16-39-23.png"><xmp>
 blurred
 shows ripple artifact (distortion)
 
 butterworth filter on Fourier transformed image
 2018-06-07 16-39-37.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-07 16-39-37.png"><xmp>
+</xmp><img src="/media/young/5e7be152-8ed5-483d-a8e8-b3fecfa221dc/text/mycodehtml/cv/sykim_image_processing_and_pattern_recognition/pic/2018-06-07 16-39-37.png"><xmp>
 
 Inversed image from butterworth filtered image
 2018-06-07 16-39-54.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-07 16-39-54.png"><xmp>
+</xmp><img src="/media/young/5e7be152-8ed5-483d-a8e8-b3fecfa221dc/text/mycodehtml/cv/sykim_image_processing_and_pattern_recognition/pic/2018-06-07 16-39-54.png"><xmp>
 blurred
 
 =========================================================
 2018-06-07 16-45-23.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-07 16-45-23.png"><xmp>
+</xmp><img src="/media/young/5e7be152-8ed5-483d-a8e8-b3fecfa221dc/text/mycodehtml/cv/sykim_image_processing_and_pattern_recognition/pic/2018-06-07 16-45-23.png"><xmp>
 
 Wide circle passess broader frequencies (passes much)
 Narrow circles passes (passes little)
 
 2018-06-07 16-46-20.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-07 16-46-20.png"><xmp>
+</xmp><img src="/media/young/5e7be152-8ed5-483d-a8e8-b3fecfa221dc/text/mycodehtml/cv/sykim_image_processing_and_pattern_recognition/pic/2018-06-07 16-46-20.png"><xmp>
 12
 34
 56
@@ -409,7 +358,7 @@ In butterworth filter, slope (order)
 The larger order becomes,  butterworth filter becomes ideal filter resulting in ripple artifact
 
 2018-06-07 16-50-07.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-07 16-50-07.png"><xmp>
+</xmp><img src="/media/young/5e7be152-8ed5-483d-a8e8-b3fecfa221dc/text/mycodehtml/cv/sykim_image_processing_and_pattern_recognition/pic/2018-06-07 16-50-07.png"><xmp>
 
 =========================================================
 High pass filtering
@@ -418,11 +367,11 @@ removes low frequency
 
 ideal filter for high pass filtering
 2018-06-07 17-04-11.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-07 17-04-11.png"><xmp>
+</xmp><img src="/media/young/5e7be152-8ed5-483d-a8e8-b3fecfa221dc/text/mycodehtml/cv/sykim_image_processing_and_pattern_recognition/pic/2018-06-07 17-04-11.png"><xmp>
 
 butterworth filter for high pass filtering
 2018-06-07 17-04-52.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-07 17-04-52.png"><xmp>
+</xmp><img src="/media/young/5e7be152-8ed5-483d-a8e8-b3fecfa221dc/text/mycodehtml/cv/sykim_image_processing_and_pattern_recognition/pic/2018-06-07 17-04-52.png"><xmp>
 
 =========================================================
 White area passes high frequency
@@ -430,16 +379,16 @@ White area passes high frequency
 ideal filter (DC centered)
 ideal filter (DC left top)
 2018-06-07 17-05-57.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-07 17-05-57.png"><xmp>
+</xmp><img src="/media/young/5e7be152-8ed5-483d-a8e8-b3fecfa221dc/text/mycodehtml/cv/sykim_image_processing_and_pattern_recognition/pic/2018-06-07 17-05-57.png"><xmp>
 
 butterworth filter (DC centered)
 butterworth filter (DC left top)
 2018-06-07 17-07-06.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-07 17-07-06.png"><xmp>
+</xmp><img src="/media/young/5e7be152-8ed5-483d-a8e8-b3fecfa221dc/text/mycodehtml/cv/sykim_image_processing_and_pattern_recognition/pic/2018-06-07 17-07-06.png"><xmp>
 
 =========================================================
 2018-06-07 17-07-42.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-07 17-07-42.png"><xmp>
+</xmp><img src="/media/young/5e7be152-8ed5-483d-a8e8-b3fecfa221dc/text/mycodehtml/cv/sykim_image_processing_and_pattern_recognition/pic/2018-06-07 17-07-42.png"><xmp>
 
 =========================================================
 How can you use "Fourier transform -> filtering"?
@@ -451,31 +400,27 @@ composed of many dots
 can't be compressed
 generally compressed 4-5 percent of digital image can produce original image
 2018-06-07 17-09-38.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-07 17-09-38.png"><xmp>
+</xmp><img src="/media/young/5e7be152-8ed5-483d-a8e8-b3fecfa221dc/text/mycodehtml/cv/sykim_image_processing_and_pattern_recognition/pic/2018-06-07 17-09-38.png"><xmp>
 
 inversed halftoning performed image :
 2018-06-07 17-11-30.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-07 17-11-30.png"><xmp>
+</xmp><img src="/media/young/5e7be152-8ed5-483d-a8e8-b3fecfa221dc/text/mycodehtml/cv/sykim_image_processing_and_pattern_recognition/pic/2018-06-07 17-11-30.png"><xmp>
 
 Fourier transform on halftoning image :
 2018-06-07 17-12-36.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-07 17-12-36.png"><xmp>
+</xmp><img src="/media/young/5e7be152-8ed5-483d-a8e8-b3fecfa221dc/text/mycodehtml/cv/sykim_image_processing_and_pattern_recognition/pic/2018-06-07 17-12-36.png"><xmp>
 2018-06-07 17-12-46.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-07 17-12-46.png"><xmp>
+</xmp><img src="/media/young/5e7be152-8ed5-483d-a8e8-b3fecfa221dc/text/mycodehtml/cv/sykim_image_processing_and_pattern_recognition/pic/2018-06-07 17-12-46.png"><xmp>
 bright, yellow area : high energy
 
 You can remove high energy area by using following filter :
 2018-06-07 17-14-06.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-07 17-14-06.png"><xmp>
+</xmp><img src="/media/young/5e7be152-8ed5-483d-a8e8-b3fecfa221dc/text/mycodehtml/cv/sykim_image_processing_and_pattern_recognition/pic/2018-06-07 17-14-06.png"><xmp>
 
 Then, you perform inverse transform to get result :
 2018-06-07 17-15-10.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-07 17-15-10.png"><xmp>
+</xmp><img src="/media/young/5e7be152-8ed5-483d-a8e8-b3fecfa221dc/text/mycodehtml/cv/sykim_image_processing_and_pattern_recognition/pic/2018-06-07 17-15-10.png"><xmp>
 
 Overview :
 2018-06-07 17-15-29.png
-</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-07 17-15-29.png"><xmp>
-      
-</xmp>
-   </BODY>
-</HTML>
+</xmp><img src="/media/young/5e7be152-8ed5-483d-a8e8-b3fecfa221dc/text/mycodehtml/cv/sykim_image_processing_and_pattern_recognition/pic/2018-06-07 17-15-29.png"><xmp>
