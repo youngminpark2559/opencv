@@ -1,0 +1,232 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+<HTML>
+   <HEAD>
+      <TITLE>My first HTML document</TITLE>
+      <style rel="stylesheet" type="text/css">
+body {
+ font-size: 23px;
+ 
+ margin-top: 50px;
+    margin-bottom: 50px;
+    margin-right: 80px;
+    margin-left: 80px;
+    
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-right: 80px;
+    padding-left: 80px;
+    
+    line-height:35px;
+}
+img {
+ width:500px;
+}
+</style>
+      <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    "HTML-CSS" : {
+        availableFonts : ["STIX"],
+        preferredFont : "STIX",
+        webFont : "STIX-Web",
+        imageFont : null
+    }
+});
+</script>
+     <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js" type="text/javascript">    
+    MathJax.Hub.Config({
+        HTML: ["input/TeX","output/HTML-CSS"],
+        TeX: { extensions: ["AMSmath.js","AMSsymbols.js"], 
+               equationNumbers: { autoNumber: "AMS" } },
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX","output/HTML-CSS"],
+        tex2jax: { inlineMath: [ ['$$$','$$$'] ],
+                   displayMath: [ ['$$$$','$$$$'] ],
+                   processEscapes: true },
+        "HTML-CSS": { availableFonts: ["TeX"],
+                      linebreaks: { automatic: true } }
+    });
+</script>
+   </HEAD>
+   <BODY>
+
+<xmp>
+=========================================================
+point operation : change one pixel
+group operation : change one pixel, with considering its neighbor pixels
+
+=========================================================
+Point operation
+    arithmetic operation
+        +-*/
+    grayscale transformation
+        changes brightness range which image has
+    histogram modification
+
+=========================================================
+grayscale image : brightness range which image has
+this image has grayscale from 0 to 100
+gray level : one brightness value which pixel has
+gray level of this pixel is 30 (dark)
+
+=========================================================
+point operation
+
+process
+    overwrites (original image will be gone), in-place transformation
+    new image (original image + new image)
+
+=========================================================
+3 point operation methods have same 2 goals to improve
+    contrast : clear, unclear
+    brightness : bright, dark
+
+=========================================================
+high contrast image
+2018-06-12 17-18-10.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-12 17-18-10.png"><xmp>
+
+
+low contrast images (low brightness, high brightness)
+2018-06-12 17-18-22.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-12 17-18-22.png"><xmp>
+
+
+Each image has histograms which show distribution of gray-level (brightness)
+
+y : number of sample
+x : brightness
+
+=========================================================
+high contrast image's histogram :
+
+almost equal number of samples
+gray-level is broadly located from 0 to 255
+
+=========================================================
+You will perform arithmetic operation on input image
+
+there are 2 arithmetic operations
+    scalar arithmetic operation
+    image arithmetic operation
+
+=========================================================
+scalar arithmetic operation
+
+You perform arithmetic operation with constant values on one pixel value
+
+$$$O(x,y)=k\times I(x,y)+l$$$
+
+I(x,y) : input image
+O(x,y) : output image
+
+=========================================================
+As you perform arithmetic operation, output value can exceed valid range
+
+Suppose you use 8 bit gray-scale image as input image
+In that case, valid range is from 0 to 255
+With arithmetic operation, you can obtain 300 output
+
+In that case, you perform mapping invalid value into valid range 
+There are various methods of that mapping like scaling, clipping, ...
+
+clipping is much used
+
+if O(x,y)>255, O(x,y) should be 255
+if O(x,y)<0, O(x,y) should be 0
+
+=========================================================
+input image and its histogram
+2018-06-12 17-31-32.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-12 17-31-32.png"><xmp>
+
+
+arithmetic operation1
+brightness increased
+distribution of histogram moved to right as much as 50
+2018-06-12 17-32-05.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-12 17-32-05.png"><xmp>
+
+
+arithmetic operation2
+brightness decreased
+distribution of histogram moved to left as much as 50
+2018-06-12 17-32-18.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-12 17-32-18.png"><xmp>
+
+
+arithmetic operation3
+brightness increased as much as 20 percent
+2018-06-12 17-33-46.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-12 17-33-46.png"><xmp>
+
+
+arithmetic operation4
+brightness decreased as much as 20 percent
+2018-06-12 17-33-57.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-12 17-33-57.png"><xmp>
+
+
+=========================================================
+image arithmetic operation
+
+original image without noise
+2018-06-12 17-49-53.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-12 17-49-53.png"><xmp>
+
+
+noised 5 images
+2018-06-12 17-50-17.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-12 17-50-17.png"><xmp>
+
+
+you find averged image with 2 images
+you find averged image with 5 images (higly removed noise)
+2018-06-12 17-51-33.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-12 17-51-33.png"><xmp>
+
+
+=========================================================
+substract 2 images
+2018-06-12 17-52-31.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-12 17-52-31.png"><xmp>
+
+
+result
+2018-06-12 17-53-17.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-12 17-53-17.png"><xmp>
+
+
+substract 2 images
+2018-06-12 17-54-28.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-12 17-54-28.png"><xmp>
+
+
+result
+2018-06-12 17-54-43.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-12 17-54-43.png"><xmp>
+
+
+=========================================================
+gray-scale transformation
+
+You define and use mapping function M
+in respect to input image I(x,y)
+to create new image O(x,y)
+
+mapping function can 1 order or high order function (1 ro 3 function are much used)
+
+=========================================================
+example
+
+You change gray level of only (10,50)
+$$$M[I(x,y)]=\begin{cases} I(x,y)&0\leq I(x,y) < 10 \\ 6[I(x,y)]-50&10\leq I(x,y) < 50 \\ I(x,y)&50\leq I(x,y) < 255 \end{cases}$$$
+2018-06-12 18-06-35.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-12 18-06-35.png"><xmp>
+
+2018-06-12 18-07-00.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-12 18-07-00.png"><xmp>
+
+</xmp>
+   </BODY>
+</HTML>
