@@ -1,0 +1,250 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+<HTML>
+   <HEAD>
+      <TITLE>My first HTML document</TITLE>
+      <style rel="stylesheet" type="text/css">
+body {
+ font-size: 23px;
+ 
+ margin-top: 50px;
+    margin-bottom: 50px;
+    margin-right: 80px;
+    margin-left: 80px;
+    
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-right: 80px;
+    padding-left: 80px;
+    
+    line-height:35px;
+}
+img {
+ width:500px;
+}
+</style>
+      <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    "HTML-CSS" : {
+        availableFonts : ["STIX"],
+        preferredFont : "STIX",
+        webFont : "STIX-Web",
+        imageFont : null
+    }
+});
+</script>
+     <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js" type="text/javascript">    
+    MathJax.Hub.Config({
+        HTML: ["input/TeX","output/HTML-CSS"],
+        TeX: { extensions: ["AMSmath.js","AMSsymbols.js"], 
+               equationNumbers: { autoNumber: "AMS" } },
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX","output/HTML-CSS"],
+        tex2jax: { inlineMath: [ ['$$$','$$$'] ],
+                   displayMath: [ ['$$$$','$$$$'] ],
+                   processEscapes: true },
+        "HTML-CSS": { availableFonts: ["TeX"],
+                      linebreaks: { automatic: true } }
+    });
+</script>
+   </HEAD>
+   <BODY>
+
+<xmp>
+=========================================================
+thresholding : 
+1. select criterion value T
+1. if bright level of each pixel of input image is less than T, that pixel becomes 0 (darkest)
+2018-06-10 16-58-16.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-10 16-58-16.png"><xmp>
+
+
+then you can get binary image : flat white, flat black
+2018-06-10 16-58-42.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-10 16-58-42.png"><xmp>
+
+
+=========================================================
+Binarization is much used for segmentation of object from background
+
+2018-06-10 17-00-19.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-10 17-00-19.png"><xmp>
+
+
+=========================================================
+color apple image is converted into gray-scale image
+
+2018-06-10 17-03-29.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-10 17-03-29.png"><xmp>
+
+
+then, you will convert gray-scale apple image into binary image
+When doing this, most important is setting thresholding value
+
+this is histogram of above gray-scale apple image
+2018-06-10 17-05-00.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-10 17-05-00.png"><xmp>
+
+
+case where you chose thresholding value from left area (at 110)
+part of object (apple) is not included
+2018-06-10 17-06-07.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-10 17-06-07.png"><xmp>
+
+
+case where you chose thresholding value from center minimum area (at 160)
+optimal
+2018-06-10 17-07-00.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-10 17-07-00.png"><xmp>
+
+
+case where you chose thresholding value from right peek area (at 175)
+part of background is included
+2018-06-10 17-07-13.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-10 17-07-13.png"><xmp>
+
+
+=========================================================
+how to choose thresholding value
+
+thresholding is good way of separating image when histogram shows bimodal histogram (two peeks) which is case with one object + background
+2018-06-10 17-09-30.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-10 17-09-30.png"><xmp>
+
+
+=========================================================
+object doesn't have high peek
+background has high peek (dark)
+2018-06-10 17-12-30.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-10 17-12-30.png"><xmp>
+
+
+try thresholding values
+2018-06-10 17-13-06.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-10 17-13-06.png"><xmp>
+
+
+It turned out 26 is almost optimal
+
+=========================================================
+It's good way to make process of finding optimal thresholding value automatic
+
+You can use otsu algorithm which was suggested in 1976
+
+Mechanism
+1. When you divide entire histogram into 2 groups, 
+each group should have consistent brightness distribution, 
+2 groups should have maximal difference in brightness
+1. You find score Ts for all possible ways
+then, you use best thresholding value
+Search ways : exhausive search, hill climbing
+1. In optimization algorithm, you use cost function (or objective function) when finding store Ts
+
+% =========================================================
+target (objective) function
+
+variance shows how much it has changes, how values are spread 
+you can use variance for target function
+
+good separation -> small changes inside of object : low variance
+
+$$$T_{opt}=arg_{1\leq k \leq L-1}min(\sigma_{W}^{2}(k))$$$
+k changes from 1 to L-1
+L : maximum brightness which image can have
+lowest variance with $$$\sigma_{W}^{2}(k)$$$, and you find argument k at that moment
+then, you will use that k as thresholding value
+
+$$$\sigma_{W}^{2}(k) = \omega_{1}(k)\sigma_{1}^{2}(k)+\omega_{2}(k)\sigma_{2}^{2}(k)$$$
+$$$\sigma_{1}^{2}$$$ : variance of first group 
+$$$\sigma_{2}^{2}$$$ : variance of second group 
+$$$\omega_{1}$$$ : probability of occuring first group, weight, some group can be larger than other groups (which has high probability of occuring)
+$$$\omega_{2}$$$ : probability of occuring second group, weight
+
+% =========================================================
+First : when you're given input image, calculate histogram
+
+Second : You find average value to separate class on $$$T=k(k\geq 1)$$$
+
+suppose you have one thresholding value k,
+$$$C_{1}(k) = \sum\limits_{i=0}^{k-1}N_{i}$$$
+$$$C_{1}(k)$$$ : entire number of pixel involved in groups less than k
+$$$i$$$ : brightness
+$$$N_{0}$$$ : number of pixels which has 0 in brightness
+
+$$$C_{2}(k) = \sum\limits_{i=0}^{k-1}N_{i} = N-C_{1}(k)$$$
+$$$C_{2}(k)$$$ : entire number of pixel involved in groups between k to L-l
+$$$i$$$ : brightness
+$$$N_{0}$$$ : number of pixels which has 0 in brightness
+
+$$$\omega_{1}(k) = \frac{C_{1}(k)}{N}$$$
+$$$\omega_{2}(k) = \frac{C_{2}(k)}{N} = 1-\omega_{1}(k)$$$
+
+ingredients for averages
+$$$\mu_{T1}(k)=\sum\limits_{i=0}^{k-1}i\cdot N_{i}$$$
+$$$\mu_{T2}(k)=\sum\limits_{i=k}^{L-1}i\cdot N_{i}$$$
+$$$\mu_{T}(k)=\sum\limits_{i=0}^{L-1}i\cdot N_{i}$$$
+$$$\mu_{T}$$$ : average of entire
+
+averages
+$$$\mu_{1}(k)= \frac{\mu_{T1}(k)}{C_{1}(k)}$$$
+$$$\mu_{2}(k)= \frac{\mu_{T2}(k)}{C_{2}(k)}=\frac{\mu_{T}-\mu_{T1}(k)}{N-C_{1}(k)}$$$
+$$$\mu_{1}$$$ : average of group1
+$$$\mu_{2}$$$ : average of group2
+
+Why you find average? To find variance
+
+Third, you find variance $$$\sigma_{W}^{2}$$$ to separate class on $$$T=k(k\geq 1)$$$
+$$$\sigma_{1}^{2}(k)=\sum\limits_{n=0}^{k-1}[n-\mu_{1}(k)]^{2}\frac{N_{n}}{C_{1}(k)}$$$
+$$$\sigma_{2}^{2}(k)=\sum\limits_{n=k}^{L-1}[n-\mu_{2}(k)]^{2}\frac{N_{n}}{C_{2}(k)}$$$
+
+$$$\sigma_{1}^{2}(k)$$$ : variance of first group
+$$$\sigma_{2}^{2}(k)$$$ : variance of second group
+
+target function :
+$$$\sigma_{W}^{2}(k) = \omega_{1}(k)\sigma_{1}^{2}(k) + \omega_{2}(k)\sigma_{2}^{2}(k)$$$
+
+4th : select optimal thresholding value by iterating in respect to all levels
+$$$T_{opt} = arg_{1\leq k \leq L-1}min(\sigma_{W}^{2}(k))$$$
+
+% =========================================================
+above method takes much time
+
+let's find other method
+variance can be decomposed into varianceB and varianceW
+$$$\sigma^{2}=\sigma_{B}^{2}+\sigma_{W}^{2}$$$
+
+within class variance :
+$$$\sigma_{W}^{2} = \omega_{1}\sigma_{1}^{2}+\omega_{2}\sigma_{2}^{2}$$$
+
+between class variance : (this reduces time)
+$$$\sigma_{B}^{2} = \sigma^{2} - \sigma_{W}^{2}$$$
+$$$=\omega_{1}(\mu_{1}-\mu)^{2}+\omega_{2}(\mu_{2}-\mu)^{2}$$$
+$$$=\omega_{1}\omega_{2}(\mu_{1}-\mu_{2})^{2}$$$
+$$$=\omega_{1}(1-\omega_{2})(\mu_{1}-\mu_{2})^{2}$$$
+
+You can use predefined values to reduce time
+if k=0,
+$$$\omega_{1}(0)=N_{0}$$$
+$$$N_{0}$$$ : number of pixels which have brightness 0
+$$$\mu_{1}(0)=0$$$
+
+if k>1,
+$$$\omega_{1}(k)=\omega_{1}(k-1)+N_{k}$$$
+$$$\mu_{1}(k)=\frac{\omega_{1}(k-1)\mu_{2}(k-1)+kN_{k}}{\omega_{1}(k)}$$$
+$$$\mu_{2}(k)=\frac{\mu-\omega_{1}(k)\mu_{1}(k)}{1-\omega_{1}(k)}$$$
+
+% =========================================================
+summary algorithm
+
+1. find histogram of input image
+1. find $$$\omega_{1}(0), \mu_{1}(0)$$$
+1. in respect to each thresholding value k $$$(1\leq k \leq L)$$$,
+    1. find $$$\omega_{0}(k), \mu_{1}(k), \mu_{2}(k)$$$
+    1. find $$$\sigma_{B}^{2}(k)$$$
+    1. if current $$$\sigma_{B}^{2}(k)$$$ is greater than current maximum $$$\sigma_{B}^{2}$$$
+        1. you update current $$$\sigma_{B}^{2}(k)$$$ to current maximum $$$\sigma_{B}^{2}$$$
+        1. you choose threshold k as optimal threshold $$$T_{opt}$$$
+
+</xmp>
+   </BODY>
+</HTML>
