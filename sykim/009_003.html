@@ -1,0 +1,202 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+<HTML>
+   <HEAD>
+      <TITLE>My first HTML document</TITLE>
+      <style rel="stylesheet" type="text/css">
+body {
+ font-size: 23px;
+ 
+ margin-top: 50px;
+    margin-bottom: 50px;
+    margin-right: 80px;
+    margin-left: 80px;
+    
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-right: 80px;
+    padding-left: 80px;
+    
+    line-height:35px;
+}
+img {
+ width:500px;
+}
+</style>
+      <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    "HTML-CSS" : {
+        availableFonts : ["STIX"],
+        preferredFont : "STIX",
+        webFont : "STIX-Web",
+        imageFont : null
+    }
+});
+</script>
+     <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js" type="text/javascript">    
+    MathJax.Hub.Config({
+        HTML: ["input/TeX","output/HTML-CSS"],
+        TeX: { extensions: ["AMSmath.js","AMSsymbols.js"], 
+               equationNumbers: { autoNumber: "AMS" } },
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX","output/HTML-CSS"],
+        tex2jax: { inlineMath: [ ['$$$','$$$'] ],
+                   displayMath: [ ['$$$$','$$$$'] ],
+                   processEscapes: true },
+        "HTML-CSS": { availableFonts: ["TeX"],
+                      linebreaks: { automatic: true } }
+    });
+</script>
+   </HEAD>
+   <BODY>
+
+<xmp>
+=========================================================
+clustring technique performs image segmentation by using clustring in feature space
+image segmentation via clustring is not general method
+
+general method is region-based image segmentation
+
+=========================================================
+Process
+
+1. You perform mapping each pixel of input image into feature space
+1. In feature space, by using similarity, you separate each pixel into corresponding cluter
+1. You perform inverse mapping to get input image
+
+=========================================================
+Feature space 
+
+general feature space is color space which is composed of basic color (RGB)
+
+image :
+2018-06-10 16-11-20.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-10 16-11-20.png"><xmp>
+
+
+3-D feature space : each axis is RGB
+2018-06-10 16-12-12.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-10 16-12-12.png"><xmp>
+
+
+In 3-D feature space, one pixel is expressed as one point
+Value of one point = (20,100,12)
+
+red region, green region
+
+segmentated image for red region from 3-D plot :
+2018-06-10 16-14-39.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-10 16-14-39.png"><xmp>
+
+
+=========================================================
+clustring technique for image segmentation on gray-scale image
+
+color feature space is 3-D
+gray-scale feature space is 1-D
+
+This way creates inconsistent edges
+2018-06-10 16-17-28.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-10 16-17-28.png"><xmp>
+
+
+This way creates rather consistent edges
+Performed noise removal (image smoothing)
+2018-06-10 16-18-04.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-10 16-18-04.png"><xmp>
+
+
+
+=========================================================
+image segmentation with recursive thresholding technique
+
+thresholding is performed based on histogram which also can be considered as feature space
+
+histogram expresses distribution of brightness of image
+
+thresholding is fitted to bimodal image (one object + background)
+recursive thresholding technique is upgraded version from thresholding technique 
+
+=========================================================
+image segmentation with recursive thresholding technique
+
+process 
+
+1. find histogram
+1. find optimal threshold value which will separate 1 bin into 2 bins
+you can use otsu method for this
+1. iterates 2nd step on each region until you obtain regions as much as you want 
+
+=========================================================
+input image, banana and apple
+2018-06-10 16-25-51.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-10 16-25-51.png"><xmp>
+
+
+its histogram
+threshold value 128 is found by otsu method
+2018-06-10 16-26-08.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-10 16-26-08.png"><xmp>
+
+
+result with 128
+2018-06-10 16-27-03.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-10 16-27-03.png"><xmp>
+
+
+You can set 3 as number of regions (background, banana, apple)
+You iterate above way
+
+Second threshold value is 216
+2018-06-10 16-28-35.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-10 16-28-35.png"><xmp>
+
+
+result
+2018-06-10 16-28-44.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-10 16-28-44.png"><xmp>
+
+
+=========================================================
+how to perform "labeling connected component"
+
+You consider connected pixels as one unit, then, you give it label, then, you make it one object
+
+There are many methods
+
+Let's see general method
+
+general "labeling connected component" is applied to binary image, which uses 4-connectivity
+
+Process
+1. You scan entire image, from left to right, from top to bottom
+1. If you run into pixel which doesn't have 0 value (object pixel), you will see its up and left pixels
+    both 0 case : you give new label to above pixel as new object
+    either 0 case : you give label which 1 pixel has to this pixel
+    both 1 case :
+        both same label : pass
+        different labels : you set them as "equivalence"
+1. You iterate 2nd step for all pixels
+1. For "equivalence" label, you reconfigure label
+
+2018-06-10 16-50-33.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-10 16-50-33.png"><xmp>
+
+=========================================================
+summary
+
+image segmentation is process of separating entire image into objects
+
+image segmentation techniques
+1. region-based segmentation
+1. clustring-based segmentation
+1. boundary detection-based segmentation
+
+To perform segmentation, you consider:
+noise about removal
+connectivity (4,8,6)
+
+Actual image segmentation technique : watersheds
+</xmp>
+   </BODY>
+</HTML>
