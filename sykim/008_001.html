@@ -1,0 +1,217 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+<HTML>
+   <HEAD>
+      <TITLE>My first HTML document</TITLE>
+      <style rel="stylesheet" type="text/css">
+body {
+ font-size: 23px;
+ 
+ margin-top: 50px;
+    margin-bottom: 50px;
+    margin-right: 80px;
+    margin-left: 80px;
+    
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-right: 80px;
+    padding-left: 80px;
+    
+    line-height:35px;
+}
+img {
+ width:500px;
+}
+</style>
+      <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    "HTML-CSS" : {
+        availableFonts : ["STIX"],
+        preferredFont : "STIX",
+        webFont : "STIX-Web",
+        imageFont : null
+    }
+});
+</script>
+     <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js" type="text/javascript">    
+    MathJax.Hub.Config({
+        HTML: ["input/TeX","output/HTML-CSS"],
+        TeX: { extensions: ["AMSmath.js","AMSsymbols.js"], 
+               equationNumbers: { autoNumber: "AMS" } },
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX","output/HTML-CSS"],
+        tex2jax: { inlineMath: [ ['$$$','$$$'] ],
+                   displayMath: [ ['$$$$','$$$$'] ],
+                   processEscapes: true },
+        "HTML-CSS": { availableFonts: ["TeX"],
+                      linebreaks: { automatic: true } }
+    });
+</script>
+   </HEAD>
+   <BODY>
+
+<xmp>
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/xxxx"><xmp>
+=========================================================
+goal of image segmentation :
+separates entire image into each object
+
+=========================================================
+low level : pixel, doesn't have shape
+high level : image, has shape
+
+=========================================================
+methods :
+To separate image, you measure homogeneity inside of region
+To separate image, you measure contrast (difference) between regions, using color, brightness, texture
+
+=========================================================
+What you should consider when performing image segmentation
+
+1. noise
+image with many noises is difficult to process, so you process about noise, then you perform other process like image segmentation
+1. connectivity
+In digital image, image is expressed in discrete way
+
+=========================================================
+it's difficult to separate one object as one object because one object is composed of various features
+
+input image
+2018-06-09 14-33-14.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-09 14-33-14.png"><xmp>
+
+
+bird is separated into various regions not one region
+severe segmentation
+2018-06-09 14-34-24.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-09 14-34-24.png"><xmp>
+
+mild segmentation 
+2018-06-09 14-33-33.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-09 14-33-33.png"><xmp>
+
+
+ideal segmentation
+2018-06-09 14-35-00.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-09 14-35-00.png"><xmp>
+
+
+=========================================================
+connectivity determines whether near pixels are connected or not
+
+connectivity types:
+4-connectivity (much used) : decides whether 4 pixels are connected or not
+2018-06-09 14-38-52.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-09 14-38-52.png"><xmp>
+
+6-connectivity : decides whether 6 pixels are connected or not
+2018-06-09 14-39-17.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-09 14-39-17.png"><xmp>
+
+8-connectivity (much used) : decides whether 8 pixels are connected or not
+2018-06-09 14-39-06.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-09 14-39-06.png"><xmp>
+
+
+=========================================================
+image
+object orange
+background white
+2018-06-09 14-40-05.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-09 14-40-05.png"><xmp>
+
+
+When you find objects with 4-connectivity, you obtain 2 objects
+2018-06-09 14-40-41.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-09 14-40-41.png"><xmp>
+
+
+When you find objects with 8-connectivity, you obtain 1 object
+2018-06-09 14-41-22.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-09 14-41-22.png"><xmp>
+
+
+=========================================================
+techniques of image segmentation:
+
+region-based segmentation
+    1. region growing technique
+    2. split and merge technique
+clustring-based techniques
+boundary detection
+
+=========================================================
+region-based segmentation
+
+1. separates entire image into small images, generally not overapped each other
+1. each region is connected
+
+=========================================================
+region-based segmentation - 1. region growing technique
+
+you need : 
+1. similarity criteria (feature :color, brightness, etc and its level)
+1. over one seed
+1. stop rule
+1. connectivity type
+
+=========================================================
+input image
+2018-06-09 15-07-55.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-09 15-07-55.png"><xmp>
+
+
+seeds are red dots
+2018-06-09 15-08-21.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-09 15-08-21.png"><xmp>
+
+
+feature : brightness value of pixel
+criteria : difference is less than 32 with seed pixels, if so, seed pixels eat that pixel
+seeds : manually determined
+connectivity type : 8-connectivity
+
+segmentated cup result : 
+2018-06-09 15-10-12.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-09 15-10-12.png"><xmp>
+
+
+=========================================================
+region-based segmentation - 2. split and merge technique
+
+this uses similarity criteria
+you specify stop rule
+you generally use quad-tree to express structure of regions
+2018-06-09 15-13-27.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-09 15-13-27.png"><xmp>
+
+
+=========================================================
+feature : brightness value of pixel
+similarity criteria : 
+
+input image where all regions don't have same similarity, so it's divided in 4 regions
+then, you check whether each region satisfies similarity criteria (still not)
+2018-06-09 15-14-55.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-09 15-14-55.png"><xmp>
+
+
+2018-06-09 15-17-47.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-09 15-17-47.png"><xmp>
+
+
+top left 2 blocks don't need to be divided, they're very similar, so they can be merged
+2018-06-09 15-18-06.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-09 15-18-06.png"><xmp>
+
+
+2018-06-09 15-18-18.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-09 15-18-18.png"><xmp>
+
+
+2018-06-09 15-18-27.png
+</xmp><img src="https://raw.githubusercontent.com/youngmtool/opencv/master/sykim/pic/2018-06-09 15-18-27.png"><xmp>
+
+</xmp>
+   </BODY>
+</HTML>
