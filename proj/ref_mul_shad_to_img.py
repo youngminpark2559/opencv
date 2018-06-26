@@ -49,7 +49,7 @@ def main():
     ori_img=np.zeros((826, 600, 3))
     
     # ========================================================================
-    # Perform dot product and insert it into 3rd dimension of c
+    # Perform dot product and insert result of dot product into 3rd dimension of ori_img
     # I'm nor sure this logic works as I expected
     # When I display ori_img with ori_img[:,:,:], many elements of 3-D tensor was stuffed with 0
     
