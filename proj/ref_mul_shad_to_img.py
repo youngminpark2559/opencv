@@ -12,13 +12,13 @@ def main():
 
     # ========================================================================
     # Try to load image with PIL
-    img_RR = Image.open(reflectance)
-    img_RR=img_RR.convert('RGB')
-    np_img_R = np.array(img_RR)
+    # img_RR = Image.open(reflectance)
+    # img_RR=img_RR.convert('RGB')
+    # np_img_R = np.array(img_RR)
     
-    img_SS = Image.open(shading)
-    img_SS.load()
-    np_img_S = np.asarray(img_SS, dtype="uint32")
+    # img_SS = Image.open(shading)
+    # img_SS.load()
+    # np_img_S = np.asarray(img_SS, dtype="uint32")
 
     # ========================================================================
     # Try to load image with scipy
@@ -29,19 +29,19 @@ def main():
     # ========================================================================
     # Try to load image with OpenCV3
     
-    # img_R = cv2.imread(reflectance, 1)
-    # img_S = cv2.imread(shading, 0)
+    img_R = cv2.imread(reflectance, 1)
+    img_S = cv2.imread(shading, 0)
 
-    # img_R=cv2.cvtColor(img_R,cv2.COLOR_BGR2RGB)
+    img_R=cv2.cvtColor(img_R,cv2.COLOR_BGR2RGB)
 
-    # np_img_R=np.array(img_R)
-    # np_img_S=np.array(img_S)
+    np_img_R=np.array(img_R)
+    np_img_S=np.array(img_S)
     
     # ========================================================================
     # Check shape of images
     
-    # print(np_img_R.shape)
-    # print(np_img_S.shape)
+    print(np_img_R.shape)
+    print(np_img_S.shape)
     
     # ========================================================================
     # Prepare 3-D tensor for orignal image
@@ -84,7 +84,7 @@ def main():
     # But I don't figure out why this difference happens between OpenCV and PIL/scipy
     
     # ========================================================================
-    Check images
+    # Check images
     
     plt.imshow(np_img_R)
     plt.show()
