@@ -69,9 +69,10 @@ def main():
     # [ 50  29 113]
     print(ori_img.astype(int)[825,599,:])
     # [0 0 0]
+    # Above both should be same but they're different
     
-    # First case has same value
-    # But second case has different value
+    # First case with [456,232,:] indices has same value
+    # But second case with [825,599,:] indices has different value
     
     # And if I load images with PIL or scipy, result of dot product exceeds 255 like:
     # First case:
