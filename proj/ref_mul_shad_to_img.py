@@ -49,7 +49,7 @@ def main():
     ori_img=np.zeros((826, 600, 3))
     
     # ========================================================================
-    # Perform dot product and insert it into 3rd dimension of ori
+    # Perform dot product and insert it into 3rd dimension of c
     # I'm nor sure this logic works as I expected
     # When I display ori_img with ori_img[:,:,:], many elements of 3-D tensor was stuffed with 0
     
@@ -58,7 +58,7 @@ def main():
             ori_img[i,j,:]=np.dot(np_img_R[i,j,:],np_img_S[i,j])
 
     # ========================================================================
-    Check if value of "dot product" in inserted into ori_img
+    # Check if value of "dot product" in inserted into ori_img
     
     print(np.dot(np_img_R[456,232,:],np_img_S[456,232]))
     # [130 250 255]
@@ -80,7 +80,7 @@ def main():
     # Secon case:
     # [4914 4893 4977]
     # [0 0 0]
-    But I don't figure out why this difference happens between OpenCV and PIL/scipy
+    # But I don't figure out why this difference happens between OpenCV and PIL/scipy
     
     # ========================================================================
     Check images
