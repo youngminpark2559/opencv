@@ -36,6 +36,7 @@ def main():
 
     np_img_R=np.array(img_R)
     np_img_S=np.array(img_S)
+    np_img_S=np.expand_dims(np_img_S,axis=2)
     
     # ========================================================================
     # Check shape of images
@@ -50,17 +51,24 @@ def main():
     
     # ========================================================================
     # Perform dot product and insert result of dot product into 3rd dimension of ori_img
-    # I'm nor sure this logic works as I expected
-    # When I display ori_img with ori_img[:,:,:], many elements of 3-D tensor was stuffed with 0
+    # I'm not sure this logic works as I expected
     
-    # for i in range(0,825):
-    #     for j in range(0,599):
-    #         ori_img[i,j,:]=np.dot(np_img_R[i,j,:],np_img_S[i,j])
-    # Above double for loop fails because vector and scalar is elementwise multiplication
+    for i in range(0,825):
+        for j in range(0,599):
+            # print(np_img_R[i,j,:].shape)
+            # (3,)
+            # print(np.expand_dims(np_img_R[i,j,:],axis=1).shape)
+            # (3,1)
+            a=np.expand_dims(np_img_R[i,j,:],axis=1)
+            # print(a.shape)
+            b=np.expand_dims(np_img_S[i,j],axis=1)
+            # print(b.shape)
+            ori_img[i,j,:]=np.dot(a,b).squeeze()
+            # print(ori_img[i,j,:].shape)
     
     # ========================================================================
-    # You can use this instead above one
-    ori_img = np_img_R * np_img_S[..., None]
+    # This works?
+    # ori_img = np_img_R * np_img_S[..., None]
     
     # ========================================================================
     # Check if value of "dot product" in inserted into ori_img
@@ -90,6 +98,7 @@ def main():
     
     # ========================================================================
     # Check images
+    np_img_S=np_img_S.squeeze()
     
     plt.imshow(np_img_R)
     plt.show()
