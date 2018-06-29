@@ -53,10 +53,15 @@ def main():
     # I'm nor sure this logic works as I expected
     # When I display ori_img with ori_img[:,:,:], many elements of 3-D tensor was stuffed with 0
     
-    for i in range(0,825):
-        for j in range(0,599):
-            ori_img[i,j,:]=np.dot(np_img_R[i,j,:],np_img_S[i,j])
-
+    # for i in range(0,825):
+    #     for j in range(0,599):
+    #         ori_img[i,j,:]=np.dot(np_img_R[i,j,:],np_img_S[i,j])
+    # Above double for loop fails because vector and scalar is elementwise multiplication
+    
+    # ========================================================================
+    # You can use this instead above one
+    ori_img = np_img_R * np_img_S[..., None]
+    
     # ========================================================================
     # Check if value of "dot product" in inserted into ori_img
     
