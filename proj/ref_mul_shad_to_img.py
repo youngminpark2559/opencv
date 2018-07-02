@@ -6,7 +6,7 @@ import scipy.misc
 
 def main():
     # ========================================================================
-    imgpath = "./image_data/"
+    imgpath = "./pic/"
     reflectance=imgpath+"predicted_reflectance.png"
     shading=imgpath+"predicted_shading.png"
 
@@ -53,8 +53,8 @@ def main():
     # Perform dot product and insert result of dot product into 3rd dimension of ori_img
     # I'm not sure this logic works as I expected
     
-    for i in range(0,825):
-        for j in range(0,599):
+    for i in range(0,826):
+        for j in range(0,600):
             # print(np_img_R[i,j,:].shape)
             # (3,)
             # print(np.expand_dims(np_img_R[i,j,:],axis=1).shape)
@@ -81,19 +81,16 @@ def main():
     print(np.dot(np_img_R[825,599,:],np_img_S[825,599]))
     # [ 50  29 113]
     print(ori_img.astype(int)[825,599,:])
-    # [0 0 0]
-    # Above both should be same but they're different
+    # [ 50  29 113]
     
-    # First case with [456,232,:] indices has same value
-    # But second case with [825,599,:] indices has different value
-    
-    # And if I load images with PIL or scipy, result of dot product exceeds 255 like:
+    # If I load images with PIL or scipy, result of dot product exceeds 255 like:
     # First case:
     # [47234 45562 43263]
     # [47234 45562 43263]
     # Secon case:
     # [4914 4893 4977]
     # [0 0 0]
+    # unlike I load image with OpenCV3
     # But I don't figure out why this difference happens between OpenCV and PIL/scipy
     
     # ========================================================================
