@@ -71,8 +71,13 @@ def main():
     # ori_img = np_img_R * np_img_S[..., None]
     
     # ========================================================================
-    # Check if value of "dot product" in inserted into ori_img
+    # You try with log
+    # ori_img[:]=np.log(np_img_R)+np.log(np_img_S)
+    # ori_img[:]=np.log10(np_img_R)+np.log10(np_img_S)
     
+    # ========================================================================
+    # Check if value of "dot product" in inserted into ori_img
+
     print(np.dot(np_img_R[456,232,:],np_img_S[456,232]))
     # [130 250 255]
     print(ori_img.astype(int)[456,232,:])
