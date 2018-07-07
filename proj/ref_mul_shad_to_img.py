@@ -31,25 +31,30 @@ def main():
     # ========================================================================
     np_img_R=np.array(img_R)
     np_img_S=np.array(img_S)
-    # You convert shape of shading image (256, 384) into (256, 384, 1) 
-    # to perform np.dot() with reflectance image
     np_img_S=np.expand_dims(np_img_S,axis=2)
-    # This is placeholder for recovered original image from dot product of img_R and img_S
     ori_img=np.zeros((256, 384, 3))
     
     # ========================================================================
     for i in range(0,256):
         for j in range(0,384):
-            # print(np_img_R[i,j,:].shape)
+            print("np_img_R[i,j,:].shape",np_img_R[i,j,:].shape)
             # (3,)
-            # print(np.expand_dims(np_img_R[i,j,:],axis=1).shape)
-            # (3,1)
             a=np.expand_dims(np_img_R[i,j,:],axis=1)
-            # print(a.shape)
-            
+            print("a.shape",a.shape)
+            # (3,1)
+
+            print("np_img_S[i,j]",np_img_S[i,j].shape)
+            # (1,)
             b=np.expand_dims(np_img_S[i,j],axis=1)
-            # print(b.shape)
+            print("b.shape",b.shape)
+            # (1, 1)
             
+            # (3,1) of reflectance dot (1,1) of shading
+            print("np.dot(a,b)",np.dot(a,b).shape)
+            # (3, 1)
+            print("np.dot(a,b).squeeze()",np.dot(a,b).squeeze().shape)
+            # (3,)
+
             # ori_img[:]=[np.dot(a,b).squeeze()]
             ori_img[i,j,:]=np.dot(a,b).squeeze()
             # print("np.dot(a,b)",np.dot(a,b).shape)
@@ -57,7 +62,7 @@ def main():
             # print(ori_img[i,j,:].shape)
 
     # ========================================================================
-    # You try with log
+    # You try with log but it seems not working
     # ori_img[:]=np.log10(np_img_R)+np.log10(np_img_S)
 
     # ========================================================================
