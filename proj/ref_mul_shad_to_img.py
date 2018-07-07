@@ -56,11 +56,8 @@ def main():
             # print("np.dot(a,b).squeeze()",np.dot(a,b).squeeze().shape)
             # print(ori_img[i,j,:].shape)
 
-    # a=np.expand_dims(np_img_R[i,j,:],axis=1)
-    # b=np.expand_dims(np_img_S[i,j],axis=1)
-    # ori_img[:]=a+b
-
     # ========================================================================
+    # You try with log
     # ori_img[:]=np.log10(np_img_R)+np.log10(np_img_S)
 
     # ========================================================================
@@ -75,14 +72,17 @@ def main():
     print("np_img_R",np_img_R.shape)
     plt.imshow(np_img_R)
     plt.show()
-
+    # https://github.com/youngmtool/opencv/blob/master/proj/pic/reflectance_01.png
+    
     print("np_img_S",np_img_S.shape)
     plt.imshow(np_img_S,cmap="gray")
     plt.show()
-
+    # https://github.com/youngmtool/opencv/blob/master/proj/pic/shading_01.png
+    
     print("ori_img",ori_img.shape)
     plt.imshow(ori_img)
     plt.show()
+    # https://github.com/youngmtool/opencv/blob/master/proj/pic/q_back.png
 
 if __name__ == "__main__":
     main()
