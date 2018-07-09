@@ -29,39 +29,37 @@ def main():
     img_R=cv2.cvtColor(img_R,cv2.COLOR_BGR2RGB)
 
     # ========================================================================
-    np_img_R=np.array(img_R)/255.
-    np_img_S=np.array(img_S)/255.
-    # np_img_S=np.expand_dims(np_img_S,axis=2)
-    #ori_img=np.zeros((256, 384, 3))
-      
-    np_img_S=np.expand_dims(np_img_S, axis=2).repeat(3, axis=2)
+    np_img_R=np.array(img_R)
+    np_img_S=np.array(img_S)
+    np_img_S=np.expand_dims(np_img_S,axis=2)
+    ori_img=np.zeros((256, 384, 3))
     
     # ========================================================================
-#     for i in range(0,256):
-#         for j in range(0,384):
-#             print("np_img_R[i,j,:].shape",np_img_R[i,j,:].shape)
-#             # (3,)
-#             a=np.expand_dims(np_img_R[i,j,:],axis=1)
-#             print("a.shape",a.shape)
-#             # (3,1)
+    for i in range(0,256):
+        for j in range(0,384):
+            print("np_img_R[i,j,:].shape",np_img_R[i,j,:].shape)
+            # (3,)
+            a=np.expand_dims(np_img_R[i,j,:],axis=1)
+            print("a.shape",a.shape)
+            # (3,1)
 
-#             print("np_img_S[i,j]",np_img_S[i,j].shape)
-#             # (1,)
-#             b=np.expand_dims(np_img_S[i,j],axis=1)
-#             print("b.shape",b.shape)
-#             # (1, 1)
+            print("np_img_S[i,j]",np_img_S[i,j].shape)
+            # (1,)
+            b=np.expand_dims(np_img_S[i,j],axis=1)
+            print("b.shape",b.shape)
+            # (1, 1)
             
-#             # (3,1) of reflectance dot (1,1) of shading
-#             print("np.dot(a,b)",np.dot(a,b).shape)
-#             # (3, 1)
-#             print("np.dot(a,b).squeeze()",np.dot(a,b).squeeze().shape)
-#             # (3,)
+            # (3,1) of reflectance dot (1,1) of shading
+            print("np.dot(a,b)",np.dot(a,b).shape)
+            # (3, 1)
+            print("np.dot(a,b).squeeze()",np.dot(a,b).squeeze().shape)
+            # (3,)
 
-#             # ori_img[:]=[np.dot(a,b).squeeze()]
-#             ori_img[i,j,:]=np.dot(a,b).squeeze()
-#             # print("np.dot(a,b)",np.dot(a,b).shape)
-#             # print("np.dot(a,b).squeeze()",np.dot(a,b).squeeze().shape)
-#             # print(ori_img[i,j,:].shape)
+            # ori_img[:]=[np.dot(a,b).squeeze()]
+            ori_img[i,j,:]=np.dot(a,b).squeeze()
+            # print("np.dot(a,b)",np.dot(a,b).shape)
+            # print("np.dot(a,b).squeeze()",np.dot(a,b).squeeze().shape)
+            # print(ori_img[i,j,:].shape)
 
     # ========================================================================
     # You try with log but it seems not working
@@ -70,9 +68,7 @@ def main():
     # ========================================================================
     # You recover shading to 2D array (256, 384) to make it grayscale image
     np_img_S=np_img_S.squeeze()
-    
-    ori_img = np_img_R * np_img_S
-    
+
     # ========================================================================
     print(np_img_R.shape)
     print(ori_img.shape)
