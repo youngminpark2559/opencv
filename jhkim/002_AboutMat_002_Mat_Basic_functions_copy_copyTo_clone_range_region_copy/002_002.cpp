@@ -1,14 +1,3 @@
-// I note explanations from lecture by JH Kim 
-// Lecture reference:
-// https://www.youtube.com/playlist?list=PLvX6vpRszMkye9Zj16aG9J063A9rBfBj2
-
-// various ways of copy image into Mat
-// 002_002.cpp
-// https://www.youtube.com/watch?v=ZSRQrJ9rErg&list=PLvX6vpRszMkye9Zj16aG9J063A9rBfBj2
-
-// =======================================================================
-// Codes
-// =======================================================================
 
 #include "opencv2/opencv.hpp"
 #include <iostream>
