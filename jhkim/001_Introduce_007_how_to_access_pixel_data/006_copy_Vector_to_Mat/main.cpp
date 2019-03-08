@@ -29,11 +29,13 @@ int main()
   // ======================================================================
   // Initialize vector Vf by using push_back()
   int cnt=0;
-  for(int i=0;i<c;++i) 
+  for(int i=0;i<c;++i)
+  {
     for(int j=0;j<r;++j)
     {
       Vf.push_back(cnt++);
     }
+  }
   
   // ======================================================================
   // for(vector<float>::iterator it=Vf.begin();it!=Vf.end();++it)
@@ -56,32 +58,3 @@ int main()
 
   return 0;
 }
-
-
-
-
-// // ======================================================================
-// // Mat to vector
-// // ======================================================================
-// vector<float> Vf2;
-// // You copy mat (M) into vector (Vf2)
-// Vf2.assign((float*)M.datastart,(float*)M.dataend);
- 
-// // You can see result
-// cnt=0;
-// for(int i=0; i< c; ++i)
-// {
-//     for(int j=0; j< r; ++j)  
-//         printf("%lf ", Vf2[cnt++]);
-//     printf("\n");
-// }
-
-// // ======================================================================
-// // Image buffer(point) copy to Mat
-// // when you want to copy "unsigned char * pData" image buffer to Mat class in OpenCV.
-// // ======================================================================
-// // You first should sync size, data type between image buffer and Mat
-// Mat InImg(height, width, CV_8UC1);
-// // InImg.data : target
-// // pData : source
-// memcpy(InImg.data, pData, sizeof(unsigned char)*width*height);

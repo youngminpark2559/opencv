@@ -29,11 +29,13 @@ int main()
   // ======================================================================
   // Initialize vector Vf by using push_back()
   int cnt=0;
-  for(int i=0;i<c;++i) 
+  for(int i=0;i<c;++i)
+  {
     for(int j=0;j<r;++j)
     {
       Vf.push_back(cnt++);
     }
+  }
   
   // ======================================================================
   // for(vector<float>::iterator it=Vf.begin();it!=Vf.end();++it)
@@ -66,8 +68,10 @@ int main()
   cnt=0;
   for(int i=0;i<c;++i)
   {
-    for(int j=0;j<r;++j)  
+    for(int j=0;j<r;++j)
+    {
       printf("%lf ",Vf2[cnt++]);
+    }
     printf("\n");
   }
 
