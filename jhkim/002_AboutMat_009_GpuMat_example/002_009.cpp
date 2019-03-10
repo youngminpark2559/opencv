@@ -125,3 +125,4 @@ printf("cpu : %.2lf second \n", (BBtime - AAtime) / getTickFrequency());
 imshow("cpu_img", img_out);
 imshow("cpu_img", img_out2);
 waitKey(0);
+
