@@ -272,7 +272,7 @@ int main(int, char)
   Mat img;
 
   // ======================================================================
-  img=imread("./../../../universe.jpg");
+  img=imread("./../../../../universe.jpg");
   // imshow("test",img);
   // waitKey(0);
 
